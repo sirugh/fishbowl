@@ -1,0 +1,4 @@
+cordova/
+dist/
+node_modules/
+www/js/lib/

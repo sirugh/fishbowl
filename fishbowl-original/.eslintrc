@@ -1,0 +1,18 @@
+{
+  "env" : {
+    "browser" : true,
+    "node" : true
+  },
+  "globals": {
+    'define' : false,
+    'Backbone': false
+  },
+  "rules": {
+    "quotes" : [1, "single"],
+    "key-spacing": [2, {
+      "beforeColon":true,
+      "afterColon":true
+    }],
+    "strict" : "never"
+  }
+}

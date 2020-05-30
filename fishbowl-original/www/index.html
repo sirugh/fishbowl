@@ -1,0 +1,67 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <title>The Fishbowl Game</title>
+  <meta name="description" content="fishbowl game">
+
+  <link rel="stylesheet" href="css/materialize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script data-main="js/main" src="js/lib/requirejs/require.js"></script>
+  <!-- TODO: inject cordova on build -->
+  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+  <audio id="beep" src="media/beep.wav">
+    Your browser does not support the <code>audio</code> element.
+  </audio>
+</head>
+<body>
+  <div class="overlay">
+    <header class="row">
+      <nav class="top-nav blue">
+        <div class="container">
+          <div class="nav-wrapper">
+            <span class="page-title">Fishbowl</span>
+            <span class="right waves-effect waves-light" id="rules">How to play?</span>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div id="page" class="content container">
+        <!-- Loading.... -->
+    </div>
+  </div>
+  <script>
+    // Cordova will tell us when toload.
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    function onDeviceReady() {
+      document.addEventListener("backbutton", onBackButton, false );
+
+      // disable select on mobile
+      document.getElementsByTagName('body')[0].classList.add('noselect');
+    }
+
+    function onBackButton (e) {
+      e.preventDefault();
+      if (window.location.hash === "") {
+        navigator.notification.confirm(
+          "Are you sure you want to exit?",
+          onConfirm);
+      } else {
+        window.history.back();
+      }
+    }
+
+    function onConfirm (buttonIndex) {
+      if (buttonIndex === 1) {
+        navigator.app.exitApp();
+      }
+    }
+  </script>
+</body>

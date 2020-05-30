@@ -1,0 +1,91 @@
+.player-ready {
+  display:none;
+  right: 0 !important;
+  top:25vh !important;
+  position:relative;
+}
+.playing {
+  bottom:-15vh !important;
+  position:relative;
+}
+.timer {
+  font-weight:300;
+}
+.word {
+  display:none;
+}
+.word-wrapper {
+  height: 10em;
+}
+
+.positioned-below {
+  bottom: -150px !important;
+  right: 0 !important;
+  position:absolute;
+}
+
+.positioned-center {
+  bottom: 50vh !important;
+  right: 0 !important;
+  position :absolute;
+}
+.page-title {
+  font-size:1.5em;
+}
+
+.team-name {
+  font-weight:bold;
+}
+.team-score {
+  font-size:1.5em;
+}
+
+/* cordova specific */
+.noselect {
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+/*material overrides*/
+label {
+  font-size: 0.9rem;
+}
+
+.collection-item {
+  padding-left: 20px !important;
+}
+.collection-item.player-name {
+  padding: 0px !important;
+}
+
+.btn-large i {
+  font-size:1.5rem;
+}
+.remove-player {
+  padding: 0 !important;
+  width: 100%;
+  text-transform:inherit;
+}
+.remove-player < .collection-item {
+  padding:0 !important;
+}
+.remove-player > i {
+  margin-left:5px;
+}
+/** animations */
+header {
+  overflow-y:hidden;
+  max-height:75px;
+  transition-property: max-height;
+  transition-duration: .5s;
+  transition-timing-function: cubic-bezier(0.05, 0.5, 0.5, 1.0)
+}
+
+header.closed {
+  max-height:0;
+}

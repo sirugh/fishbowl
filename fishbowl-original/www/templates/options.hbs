@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col s12">
+    {{#each options}}
+    <div class="col s6">
+      <label for={{@key}}>{{name}}</label>
+      <select name={{@key}} id={{@key}} class="browser-default {{@key}}">
+        {{#each options}}
+          <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+    </div>
+    {{/each}}
+  </div>
+</div>
+

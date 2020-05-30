@@ -1,0 +1,60 @@
+{{!-- view for player acting --}}
+{{#if started}}
+  {{#if activePlayer}}
+    {{#unless playerReady}}
+    <div class="player-ready">
+      <div class="row center-align">
+        <div class="col s12">
+          <h3>{{activePlayer.name}}</h3>
+          <h5>are you ready?</h5>
+        </div>
+      </div>
+      <div class="row center-align">
+        <div class="col s12">
+          <h5>{{roundWords.length}} words left in Round {{round}}</h5>
+          <h5>{{rule}}</h5>
+        </div>
+      </div>
+      <div class="row center-align">
+        <div class="col s12">
+          <button class="btn waves-effect waves-light green" name="action" id="go-button">
+            <span>Go!<i class="mdi-content-send right"></i></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    {{/unless}}
+    {{#if playerReady}}
+      {{#if word}}
+      <div class="playing">
+        <div class="row center-align">
+          <div class="col s12">
+            <h3 class="timer">{{timePerPlayer}}</h3>
+          </div>
+        </div>
+        <div class="row center-align">
+          <div class="col s12 word-wrapper">
+            <h2 class="word">{{word}}</h2>
+          </div>
+        </div>
+        <div class="row center-align">
+          <div class="col s6">
+            <button class="btn btn-large waves-effect waves-light red" id="skip">
+              <span>Skip -1
+                {{!-- <i class="mdi-content-clear right"></i> --}}
+              </span>
+            </button>
+          </div>
+          <div class="col s6">
+            <button class="btn btn-large waves-effect waves-light green" id="score">
+              <span>Score +1
+                {{!-- <i class="mdi-content-send right"></i> --}}
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      {{/if}}
+    {{/if}}
+  {{/if}}
+{{/if}}

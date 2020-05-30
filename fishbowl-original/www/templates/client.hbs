@@ -1,0 +1,56 @@
+{{#unless started}}
+{{!-- toasts instead --}}
+  <div class="row">
+    <div class="col s12 red-text">
+      {{errorMessage}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <div class="col s9 m6">
+        <input type="text" class="validate" id="name-form-field" placeholder="Player Name" autofocus>
+      </div>
+      <div class="col s3 m6">
+        <div class="center-align">
+          <button class="btn waves-effect waves-light" type="submit" name="action" id="add-player-button">
+            <span>Add</span>
+            <span class="hide-on-small-only">&nbsp;Player<i class="mdi-social-person-add left"></i></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="options-container"></div>
+  <div class="row">
+    <div class="col s12">
+      <div class="col s6">
+        <button class="btn waves-effect waves-light right" id="shuffle">Shuffle
+          <i class="mdi-av-shuffle right"></i>
+        </button>
+      </div>
+      <div class="col s6">
+        <button class="btn waves-effect waves-light green" id="start-button">start
+          <i class="mdi-content-send right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    {{#each teams}}
+      <div class="col s6 center-align">
+      <ul class="collection with-header">
+        <li class="collection-header"><h5>{{this.name}}</h5></li>
+           {{#each this.players}}
+            <li class="collection-item player-name">
+              <span class="waves-effect waves-dark btn-flat remove-player" data-id="{{this.id}}">
+                <i class="mdi-navigation-close left" data-id="{{this.id}}"></i>
+                {{this.name}}
+              </span>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+      {{/each}}
+  </div>
+{{/unless}}
+<div class="playing-container"></div>
